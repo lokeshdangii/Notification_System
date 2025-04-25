@@ -1,0 +1,28 @@
+Without API Key
++++++++++++++++
+
+curl -X POST http://localhost:5000/notify \
+     -H "Content-Type: application/json" \
+     -d '{
+           "event_type": "user_registered",
+           "payload": {
+             "name": "Lokesh",
+             "email": "lokeshd4ngi@gmail.com"
+           }
+         }'
+
+
+With API Key (Auth)
+++++++++++++++++++
+
+
+curl -X POST http://localhost:5000/notify \
+     -H "Content-Type: application/json" \
+     -H "X-API-KEY: supersecretapikey123" \
+     -d '{
+           "event_type": "user_registered",
+           "payload": {
+             "name": "Lokesh",
+             "email": "lokeshd4ngi@gmail.com"
+           }
+         }'
