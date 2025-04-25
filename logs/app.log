@@ -1,0 +1,61 @@
+2025-04-25 15:31:13,083 - INFO - notification_logger - 🔔 Received /notify request
+2025-04-25 15:31:13,084 - INFO - notification_logger - 📦 Processing event_type: user_registered for email: lokeshd4ngi@gmail.com
+2025-04-25 15:31:13,239 - INFO - notification_logger - 📨 Email task queued for lokeshd4ngi@gmail.com
+2025-04-25 15:31:13,241 - INFO - notification_logger - [Task] Triggered send_email_task for lokeshd4ngi@gmail.com
+2025-04-25 15:31:13,241 - INFO - notification_logger - [EmailChannel] Sending email to lokeshd4ngi@gmail.com with subject 'Welcome to Appointy!'
+2025-04-25 15:31:16,996 - INFO - notification_logger - [EmailChannel] Email successfully sent to lokeshd4ngi@gmail.com
+2025-04-25 15:31:16,997 - INFO - notification_logger - [Task] Email successfully sent to lokeshd4ngi@gmail.com
+2025-04-25 15:36:08,829 - INFO - notification_logger - 🔔 Received /notify request
+2025-04-25 15:36:08,830 - INFO - notification_logger - 📦 Processing event_type: user_registered for email: lokeshd4ngi@gmail.com
+2025-04-25 15:36:08,981 - INFO - notification_logger - 📨 Email task queued for lokeshd4ngi@gmail.com
+2025-04-25 15:36:08,983 - INFO - notification_logger - [Task] Triggered send_email_task for lokeshd4ngi@gmail.com
+2025-04-25 15:36:08,984 - INFO - notification_logger - [EmailChannel] Sending email to lokeshd4ngi@gmail.com with subject 'Welcome to Appointy!'
+2025-04-25 15:36:12,521 - INFO - notification_logger - [EmailChannel] Email successfully sent to lokeshd4ngi@gmail.com
+2025-04-25 15:36:12,521 - INFO - notification_logger - [Task] Email successfully sent to lokeshd4ngi@gmail.com
+2025-04-25 15:36:34,887 - INFO - notification_logger - 🔔 Received /notify request
+2025-04-25 15:36:34,888 - INFO - notification_logger - 📦 Processing event_type: user_registered for email: lokeshd4ngiii@gmail.com
+2025-04-25 15:36:34,907 - INFO - notification_logger - 📨 Email task queued for lokeshd4ngiii@gmail.com
+2025-04-25 15:36:34,911 - INFO - notification_logger - [Task] Triggered send_email_task for lokeshd4ngiii@gmail.com
+2025-04-25 15:36:34,912 - INFO - notification_logger - [EmailChannel] Sending email to lokeshd4ngiii@gmail.com with subject 'Welcome to Appointy!'
+2025-04-25 15:36:38,931 - ERROR - notification_logger - [EmailChannel] Failed to send email to lokeshd4ngiii@gmail.com
+2025-04-25 15:36:38,931 - ERROR - notification_logger - [Task] Failed to send email to lokeshd4ngiii@gmail.com
+2025-04-25 16:00:57,215 - INFO - notification_logger - 🔔 Received /notify request
+2025-04-25 16:00:57,215 - INFO - notification_logger - 📦 Processing event_type: user_registered for email: lokeshd4ngi@gmail.com
+2025-04-25 16:00:57,291 - INFO - notification_logger - 📨 Email task queued for lokeshd4ngi@gmail.com
+2025-04-25 16:00:57,294 - INFO - notification_logger - [Task] Triggered send_email_task for lokeshd4ngi@gmail.com
+2025-04-25 16:00:57,294 - INFO - notification_logger - [EmailChannel] Sending email to lokeshd4ngi@gmail.com with subject 'Welcome to Appointy!'
+2025-04-25 16:00:58,301 - INFO - notification_logger - 🔔 Received /notify request
+2025-04-25 16:00:58,302 - INFO - notification_logger - 📦 Processing event_type: user_registered for email: lokeshd4ngi@gmail.com
+2025-04-25 16:00:58,321 - INFO - notification_logger - 📨 Email task queued for lokeshd4ngi@gmail.com
+2025-04-25 16:00:58,325 - INFO - notification_logger - [Task] Triggered send_email_task for lokeshd4ngi@gmail.com
+2025-04-25 16:00:58,327 - INFO - notification_logger - [EmailChannel] Sending email to lokeshd4ngi@gmail.com with subject 'Welcome to Appointy!'
+2025-04-25 16:00:59,332 - INFO - notification_logger - 🔔 Received /notify request
+2025-04-25 16:00:59,333 - INFO - notification_logger - 📦 Processing event_type: user_registered for email: lokeshd4ngi@gmail.com
+2025-04-25 16:00:59,351 - INFO - notification_logger - 📨 Email task queued for lokeshd4ngi@gmail.com
+2025-04-25 16:00:59,355 - INFO - notification_logger - [Task] Triggered send_email_task for lokeshd4ngi@gmail.com
+2025-04-25 16:00:59,357 - INFO - notification_logger - [EmailChannel] Sending email to lokeshd4ngi@gmail.com with subject 'Welcome to Appointy!'
+2025-04-25 16:01:00,361 - INFO - notification_logger - 🔔 Received /notify request
+2025-04-25 16:01:00,362 - INFO - notification_logger - 📦 Processing event_type: user_registered for email: lokeshd4ngi@gmail.com
+2025-04-25 16:01:00,380 - INFO - notification_logger - 📨 Email task queued for lokeshd4ngi@gmail.com
+2025-04-25 16:01:00,384 - INFO - notification_logger - [Task] Triggered send_email_task for lokeshd4ngi@gmail.com
+2025-04-25 16:01:00,386 - INFO - notification_logger - [EmailChannel] Sending email to lokeshd4ngi@gmail.com with subject 'Welcome to Appointy!'
+2025-04-25 16:01:00,888 - INFO - notification_logger - [EmailChannel] Email successfully sent to lokeshd4ngi@gmail.com
+2025-04-25 16:01:00,888 - INFO - notification_logger - [Task] Email successfully sent to lokeshd4ngi@gmail.com
+2025-04-25 16:01:01,391 - INFO - notification_logger - 🔔 Received /notify request
+2025-04-25 16:01:01,392 - INFO - notification_logger - 📦 Processing event_type: user_registered for email: lokeshd4ngi@gmail.com
+2025-04-25 16:01:01,413 - INFO - notification_logger - 📨 Email task queued for lokeshd4ngi@gmail.com
+2025-04-25 16:01:01,418 - INFO - notification_logger - [Task] Triggered send_email_task for lokeshd4ngi@gmail.com
+2025-04-25 16:01:01,418 - INFO - notification_logger - [EmailChannel] Sending email to lokeshd4ngi@gmail.com with subject 'Welcome to Appointy!'
+2025-04-25 16:01:01,890 - INFO - notification_logger - [EmailChannel] Email successfully sent to lokeshd4ngi@gmail.com
+2025-04-25 16:01:01,890 - INFO - notification_logger - [Task] Email successfully sent to lokeshd4ngi@gmail.com
+2025-04-25 16:01:02,423 - WARNING - notification_logger - ⚠️ Rate limit exceeded: 5 per 1 minute
+2025-04-25 16:01:03,037 - INFO - notification_logger - [EmailChannel] Email successfully sent to lokeshd4ngi@gmail.com
+2025-04-25 16:01:03,038 - INFO - notification_logger - [Task] Email successfully sent to lokeshd4ngi@gmail.com
+2025-04-25 16:01:03,430 - WARNING - notification_logger - ⚠️ Rate limit exceeded: 5 per 1 minute
+2025-04-25 16:01:03,900 - INFO - notification_logger - [EmailChannel] Email successfully sent to lokeshd4ngi@gmail.com
+2025-04-25 16:01:03,900 - INFO - notification_logger - [Task] Email successfully sent to lokeshd4ngi@gmail.com
+2025-04-25 16:01:04,439 - WARNING - notification_logger - ⚠️ Rate limit exceeded: 5 per 1 minute
+2025-04-25 16:01:04,985 - INFO - notification_logger - [EmailChannel] Email successfully sent to lokeshd4ngi@gmail.com
+2025-04-25 16:01:04,986 - INFO - notification_logger - [Task] Email successfully sent to lokeshd4ngi@gmail.com
+2025-04-25 16:01:05,448 - WARNING - notification_logger - ⚠️ Rate limit exceeded: 5 per 1 minute
+2025-04-25 16:01:06,457 - WARNING - notification_logger - ⚠️ Rate limit exceeded: 5 per 1 minute

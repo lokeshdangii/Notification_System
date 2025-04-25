@@ -1,0 +1,39 @@
+1. One script that will trigger Notification Service (API Calling by script)
+2. Logging
+3. Scalability
+4. Rate Limiting
+
+
+
+
+command to run celery: celery -A tasks worker --loglevel=info
+
+
+
+
+
+Done:
+
+
+Logging✅:
+
+    Log in console✅
+    Log FileHandler✅
+    Log Rotation✅
+    Error Logs✅
+queue✅
+
+
+
+
+
+
+
+
+
+
+Dockerize:
+
+
+docker build -t notification_system .
+docker run -p 5000:5000 notification_system
