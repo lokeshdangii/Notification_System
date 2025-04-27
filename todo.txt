@@ -4,14 +4,6 @@
 4. Rate Limiting
 
 
-
-
-command to run celery: celery -A tasks worker --loglevel=info
-
-
-
-
-
 Done:
 
 
@@ -26,14 +18,29 @@ queue✅
 
 
 
+CMDs:
 
-
-
-
-
+command to run celery: celery -A tasks worker --loglevel=info
 
 Dockerize:
 
 
 docker build -t notification_system .
 docker run -p 5000:5000 notification_system
+
+
+Docker compose commands
++++++++++++++++++++++++
+
+docker-compose build: 	                        Only builds images (doesn't start containers).
+docker-compose up: 	                            Starts containers, but only if images already exist.
+docker-compose up --build: 	                    Builds images (if needed) and then runs everything — best choice!
+docker-compose up --build --force-recreate:     to force Docker to rebuild and recreate containers!
+
+
+K8S
++++
+
+kubectl apply -f k8s-deployment.yaml
+kubectl get pods
+kubectl get svc

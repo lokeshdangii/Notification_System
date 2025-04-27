@@ -1,20 +1,20 @@
-# Use a lightweight Python image as the base
+# Use a lightweight Python image
 FROM python:3.12-slim
 
-# Set the working directory
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy the requirements file into the container
+# Copy requirements first (for caching layers)
 COPY requirements.txt .
 
-# Install the dependencies
+# Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the application code into the container
+# Copy the entire project
 COPY . .
 
-# Expose the application port (Flask default is 5000)
+# Expose the Flask app port
 EXPOSE 5000
 
-# Define the entry point for the application
+# Default command will be overridden by docker-compose
 CMD ["python", "api/app.py"]

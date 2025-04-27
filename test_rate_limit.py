@@ -2,7 +2,7 @@ import requests
 import time
 
 URL = "http://localhost:5000/notify"
-API_KEY = "supersecretapikey123"  # 🔑 Replace with the actual API key
+API_KEY = "supersecretapikey123" 
 
 headers = {
     "Content-Type": "application/json",
