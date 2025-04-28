@@ -1,22 +1,24 @@
 # api/app.py
 
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
+from flask_cors import CORS 
 import sys
 import os
 
 # 🔁 Path config
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from dispatcher import NotificationDispatcher
-from logging_config import setup_logger
+from logging_config import logger
 from config import CONFIG
 from tasks import send_email_task  # ✅ Celery task import
 
-# ✅ Setup logger
-logger = setup_logger()
+# # ✅ Setup logger
+# logger = setup_logger()
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes (allows all origins)
 dispatcher = NotificationDispatcher(CONFIG)
 
 # 🔐 Load API key
@@ -42,6 +44,11 @@ def ratelimit_handler(e):
         "details": str(e.description)
     }), 429
 
+@app.route("/")
+def index():
+    return render_template('index.html')
+
+
 @app.route('/notify', methods=['POST'])
 @limiter.limit("5 per minute")  # 🔄 Specific limit for this route
 def notify():
@@ -63,20 +70,37 @@ def notify():
 
     logger.info(f"📦 Processing event_type: {event_type} for email: {payload.get('email')}")
 
+    subject = None
+    body = None
+
     if event_type == "user_registered":
         subject = "Welcome to Notify!"
-        body = f"<p>Hello {payload['name']}, thanks for registering.</p>"
+        body = f"<p>Hello {payload['name']}, thanks for registering with us.</p>"
 
-        try:
-            send_email_task.delay(payload["email"], subject, body)
-            logger.info(f"📨 Email task queued for {payload['email']}")
-            return jsonify({"message": "Notification queued"}), 202
-        except Exception as e:
-            logger.exception(f"❌ Failed to queue email: {str(e)}")
-            return jsonify({"error": "Internal Server Error"}), 500
+    elif event_type == "order_confirmed":
+        subject = "Your Order is Confirmed!"
+        body = f"<p>Hi {payload['name']}, your order #{payload['order_id']} has been successfully confirmed.</p>"
 
-    logger.warning(f"⚠️ Unsupported event_type: {event_type}")
-    return jsonify({"error": "Unsupported event type"}), 400
+    elif event_type == "order_delivered":
+        subject = "Order Delivered!"
+        body = f"<p>Hi {payload['name']}, your order #{payload['order_id']} has been delivered. Enjoy!</p>"
+
+    elif event_type == "payment_done":
+        subject = "Payment Received!"
+        body = f"<p>Hi {payload['name']}, we have received your payment of {payload['amount']} successfully. Thank you!</p>"
+
+    else:
+        logger.warning(f"⚠️ Unsupported event_type: {event_type}")
+        return jsonify({"error": "Unsupported event type"}), 400
+
+    # ✅ If subject and body prepared, queue email
+    try:
+        send_email_task.delay(payload["email"], subject, body)
+        logger.info(f"📨 Email task queued for {payload['email']}")
+        return jsonify({"message": "Notification queued"}), 202
+    except Exception as e:
+        logger.exception(f"❌ Failed to queue email: {str(e)}")
+        return jsonify({"error": "Internal Server Error"}), 500
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)

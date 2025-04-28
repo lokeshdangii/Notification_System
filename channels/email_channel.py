@@ -1,8 +1,7 @@
 # channels/email_channel.py
-from adapters.email_adapter import EmailAdapter
-from logging_config import setup_logger
 
-logger = setup_logger()
+from adapters.email_adapter import EmailAdapter
+from logging_config import logger  
 
 class EmailChannel:
     def __init__(self, config):

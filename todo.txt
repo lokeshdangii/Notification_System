@@ -20,7 +20,10 @@ queue✅
 
 CMDs:
 
-command to run celery: celery -A tasks worker --loglevel=info
+command to run celery: 
+++++++++++++++++++++++
+
+celery -A tasks worker --loglevel=info
 
 Dockerize:
 
@@ -108,3 +111,7 @@ To delete container
 
 
 docker rm -f notification_redis flask-app celery-worker
+
+
+HTML WebPage
+http://Pub_IP:5500/notify.html

@@ -1,17 +1,20 @@
-# logger.py
+# logging_config.py
+
 import logging
 import os
 from logging.handlers import RotatingFileHandler
 
-def setup_logger(name="notification_logger"):
-    logger = logging.getLogger(name)
+# Global logger instance
+logger = logging.getLogger("notification_logger")
+
+def setup_logger():
     logger.setLevel(logging.INFO)
 
-    # Prevent duplicate handlers
+    # Prevent adding handlers multiple times
     if logger.hasHandlers():
         return logger
 
-    # Create logs directory
+    # Create logs directory if it doesn't exist
     os.makedirs("logs", exist_ok=True)
 
     # Formatter
@@ -24,17 +27,17 @@ def setup_logger(name="notification_logger"):
     console_handler.setFormatter(formatter)
     logger.addHandler(console_handler)
 
-    # ✅ Rotating File handler for all logs
+    # ✅ Rotating file handler for all logs
     general_log_handler = RotatingFileHandler(
-        "logs/app.log", maxBytes=5*1024*1024, backupCount=3  # 5MB, 3 backups
+        "logs/app.log", maxBytes=5*1024*1024, backupCount=3  # 5 MB file, 3 backups
     )
     general_log_handler.setFormatter(formatter)
     general_log_handler.setLevel(logging.INFO)
     logger.addHandler(general_log_handler)
 
-    # ✅ Separate Rotating File handler for errors only
+    # ✅ Separate rotating file handler for error logs
     error_log_handler = RotatingFileHandler(
-        "logs/error.log", maxBytes=2*1024*1024, backupCount=3  # 2MB, 3 backups
+        "logs/error.log", maxBytes=2*1024*1024, backupCount=3  # 2 MB file, 3 backups
     )
     error_log_handler.setFormatter(formatter)
     error_log_handler.setLevel(logging.ERROR)

@@ -1,2 +1,8 @@
 2025-04-25 15:36:38,931 - ERROR - notification_logger - [EmailChannel] Failed to send email to lokeshd4ngiii@gmail.com
 2025-04-25 15:36:38,931 - ERROR - notification_logger - [Task] Failed to send email to lokeshd4ngiii@gmail.com
+2025-04-28 11:11:23,252 - ERROR - notification_logger - [EmailChannel] Failed to send email to lokeshd4ngiii@gmail.com
+2025-04-28 11:11:23,252 - ERROR - notification_logger - [Task] Failed to send email to lokeshd4ngiii@gmail.com
+2025-04-28 11:20:50,245 - ERROR - notification_logger - [EmailChannel] Failed to send email to lokeshd4ngiii@gmail.com
+2025-04-28 11:20:50,246 - ERROR - notification_logger - [Task] Failed to send email to lokeshd4ngiii@gmail.com
+2025-04-28 11:31:42,349 - ERROR - notification_logger - [EmailChannel] Failed to send email to lokesh@example.com
+2025-04-28 11:31:42,350 - ERROR - notification_logger - [Task] Failed to send email to lokesh@example.com

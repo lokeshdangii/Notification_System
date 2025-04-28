@@ -34,6 +34,11 @@ curl -X POST http://localhost:5000/notify \
 Remote
 ------
 
+
+1. For User Registered
++++++++++++++++++++++++
+
+
 curl -X POST http://18.234.240.213:5000/notify \
      -H "Content-Type: application/json" \
      -H "X-API-KEY: supersecretapikey123" \
@@ -45,4 +50,53 @@ curl -X POST http://18.234.240.213:5000/notify \
            }
          }'
 
-18.234.240.213
+
+
+2. For order_confirmed:
++++++++++++++++++++++++
+
+curl -X POST http://localhost:5000/notify \
+     -H "Content-Type: application/json" \
+     -H "X-API-KEY: supersecretapikey123" \
+     -d '{
+  "event_type": "order_confirmed",
+  "payload": {
+    "name": "Lokesh",
+    "email": "lokeshd4ngi@gmail.com",
+    "order_id": "12345"
+  }
+}'
+
+
+3. For payment_done:
+++++++++++++++++++++
+
+
+curl -X POST http://localhost:5000/notify \
+     -H "Content-Type: application/json" \
+     -H "X-API-KEY: supersecretapikey123" \
+     -d '{
+  "event_type": "payment_done",
+  "payload": {
+    "name": "Lokesh",
+    "email": "lokeshd4ngi@gmail.com",
+    "amount": "$99.99"
+  }
+}'
+
+
+4. For order delivered
+++++++++++++++++++++++
+
+curl -X POST http://localhost:5000/notify \
+     -H "Content-Type: application/json" \
+     -H "X-API-KEY: supersecretapikey123" \
+     -d '{
+  "event_type": "order_delivered",
+  "payload": {
+    "name": "Lokesh",
+    "email": "lokeshd4ngi@gmail.com",
+    "order_id": "12345"
+  }
+}'
+

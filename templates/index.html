@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notification Tester</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding-top: 50px;
+        }
+        .container {
+            max-width: 600px;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+        }
+        #response {
+            white-space: pre-wrap;
+            margin-top: 20px;
+        }
+        .extra-field {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2 class="mb-4 text-center">🚀 Send a Notification</h2>
+
+    <form id="notifyForm">
+        <div class="mb-3">
+            <label for="event_type" class="form-label">Select Event Type</label>
+            <select class="form-select" id="event_type" required>
+                <option value="">-- Choose Event --</option>
+                <option value="user_registered">User Registered</option>
+                <option value="order_confirmed">Order Confirmed</option>
+                <option value="order_delivered">Order Delivered</option>
+                <option value="payment_done">Payment Done</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">Recipient Email</label>
+            <input type="email" class="form-control" id="email" placeholder="test@example.com" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="name" class="form-label">Recipient Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Lokesh" required>
+        </div>
+
+        <!-- Additional Fields -->
+        <div id="order_id_field" class="mb-3 extra-field">
+            <label for="order_id" class="form-label">Order ID</label>
+            <input type="text" class="form-control" id="order_id" placeholder="12345">
+        </div>
+
+        <div id="amount_field" class="mb-3 extra-field">
+            <label for="amount" class="form-label">Amount</label>
+            <input type="text" class="form-control" id="amount" placeholder="$99.99">
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Send Notification</button>
+    </form>
+
+    <div id="response" class="mt-4 alert alert-info" style="display:none;"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    const API_KEY = "supersecretapikey123"; // Replace with your actual API key
+
+    // Show/Hide extra fields based on event type
+    document.getElementById("event_type").addEventListener("change", function() {
+        const eventType = this.value;
+        const orderIdField = document.getElementById("order_id_field");
+        const amountField = document.getElementById("amount_field");
+
+        // Reset the visibility of the fields
+        orderIdField.style.display = 'none';
+        amountField.style.display = 'none';
+
+        // Show fields based on selected event type
+        if (eventType === "order_confirmed" || eventType === "order_delivered") {
+            orderIdField.style.display = 'block';
+        } 
+        if (eventType === "payment_done") {
+            amountField.style.display = 'block';
+        }
+    });
+
+    document.getElementById("notifyForm").addEventListener("submit", async function(e) {
+        e.preventDefault();
+
+        const eventType = document.getElementById("event_type").value;
+        const email = document.getElementById("email").value;
+        const name = document.getElementById("name").value;
+
+        // Collect additional fields based on the event type
+        let additionalPayload = {};
+        if (eventType === "order_confirmed" || eventType === "order_delivered") {
+            additionalPayload.order_id = document.getElementById("order_id").value;
+        }
+        if (eventType === "payment_done") {
+            additionalPayload.amount = document.getElementById("amount").value;
+        }
+
+        const payload = {
+            event_type: eventType,
+            payload: {
+                email: email,
+                name: name,
+                ...additionalPayload // Add any extra data
+            }
+        };
+
+        try {
+            const response = await fetch("http://localhost:5000/notify", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-API-KEY": API_KEY
+                },
+                body: JSON.stringify(payload)
+            });
+
+            const data = await response.json();
+            const responseDiv = document.getElementById("response");
+            responseDiv.style.display = 'block';
+            responseDiv.innerText = JSON.stringify(data, null, 2);
+        } catch (error) {
+            const responseDiv = document.getElementById("response");
+            responseDiv.style.display = 'block';
+            responseDiv.innerText = "Error: " + error.message;
+        }
+    });
+</script>
+
+</body>
+</html>
