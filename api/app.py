@@ -64,7 +64,7 @@ def notify():
     logger.info(f"📦 Processing event_type: {event_type} for email: {payload.get('email')}")
 
     if event_type == "user_registered":
-        subject = "Welcome to Appointy!"
+        subject = "Welcome to Notify!"
         body = f"<p>Hello {payload['name']}, thanks for registering.</p>"
 
         try:

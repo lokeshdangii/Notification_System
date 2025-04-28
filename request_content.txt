@@ -15,6 +15,8 @@ curl -X POST http://localhost:5000/notify \
 With API Key (Auth)
 ++++++++++++++++++
 
+localhost
+---------
 
 curl -X POST http://localhost:5000/notify \
      -H "Content-Type: application/json" \
@@ -26,3 +28,21 @@ curl -X POST http://localhost:5000/notify \
              "email": "lokeshd4ngi@gmail.com"
            }
          }'
+
+
+
+Remote
+------
+
+curl -X POST http://18.234.240.213:5000/notify \
+     -H "Content-Type: application/json" \
+     -H "X-API-KEY: supersecretapikey123" \
+     -d '{
+           "event_type": "user_registered",
+           "payload": {
+             "name": "Lokesh",
+             "email": "lokeshd4ngi@gmail.com"
+           }
+         }'
+
+18.234.240.213

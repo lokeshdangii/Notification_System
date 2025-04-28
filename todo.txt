@@ -44,3 +44,67 @@ K8S
 kubectl apply -f k8s-deployment.yaml
 kubectl get pods
 kubectl get svc
+
+
+Docker Installation 
+++++++++++++++++++++
+
+sudo apt update
+sudo apt install docker.io -y
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo usermod -aG docker ubuntu
+newgrp docker
+
+sudo apt install docker-compose -y
+
+
+Docker image pulling
+++++++++++++++++++++
+
+docker pull lokeshdangi/notification_system_flask_app:latest
+docker pull lokeshdangi/notification_system_celery_worker:latest
+docker pull redis:7-alpine
+
+
+
+Docker run
++++++++++++
+
+
+1. Run Redis container first (because your app and celery need Redis)
+docker run -d \
+  --name notification_redis \
+  -p 6379:6379 \
+  redis:7-alpine
+
+
+2. Run Flask App container
+docker run -d \
+  --name flask-app \
+  --link notification_redis:notification_redis \
+  -p 5000:5000 \
+  lokeshdangi/notification_system_flask_app:latest
+
+
+3. Start the Celery worker container (also needs Redis):
+
+docker run -d \
+  --name celery-worker \
+  --link notification_redis:notification_redis \
+  lokeshdangi/notification_system_celery_worker:latest \
+  celery -A api.celery_app worker --loglevel=info
+
+
+docker run -d \
+  --name celery-worker \
+  --link notification_redis:notification_redis \
+  lokeshdangi/notification_system_celery_worker:latest
+
+
+
+To delete container
+++++++++++++++++++++
+
+
+docker rm -f notification_redis flask-app celery-worker
