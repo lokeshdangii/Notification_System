@@ -2,7 +2,7 @@
 FROM python:3.12-slim
 
 # Set the working directory inside the container
-WORKDIR /app
+WORKDIR .
 
 # Copy requirements first (for caching layers)
 COPY requirements.txt .

@@ -20,7 +20,7 @@ localhost
 
 curl -X POST http://localhost:5000/notify \
      -H "Content-Type: application/json" \
-     -H "X-API-KEY: supersecretapikey123" \
+     -H "X-API-KEY: $API_KEY" \
      -d '{
            "event_type": "user_registered",
            "payload": {
@@ -39,9 +39,9 @@ Remote
 +++++++++++++++++++++++
 
 
-curl -X POST http://18.234.240.213:5000/notify \
+curl -X POST http://54.85.143.45:5000/notify \
      -H "Content-Type: application/json" \
-     -H "X-API-KEY: supersecretapikey123" \
+     -H "X-API-KEY: $API_KEY" \
      -d '{
            "event_type": "user_registered",
            "payload": {
@@ -57,7 +57,7 @@ curl -X POST http://18.234.240.213:5000/notify \
 
 curl -X POST http://localhost:5000/notify \
      -H "Content-Type: application/json" \
-     -H "X-API-KEY: supersecretapikey123" \
+     -H "X-API-KEY: $API_KEY" \
      -d '{
   "event_type": "order_confirmed",
   "payload": {
@@ -74,7 +74,7 @@ curl -X POST http://localhost:5000/notify \
 
 curl -X POST http://localhost:5000/notify \
      -H "Content-Type: application/json" \
-     -H "X-API-KEY: supersecretapikey123" \
+     -H "X-API-KEY: $API_KEY" \
      -d '{
   "event_type": "payment_done",
   "payload": {
@@ -90,7 +90,7 @@ curl -X POST http://localhost:5000/notify \
 
 curl -X POST http://localhost:5000/notify \
      -H "Content-Type: application/json" \
-     -H "X-API-KEY: supersecretapikey123" \
+     -H "X-API-KEY: $API_KEY" \
      -d '{
   "event_type": "order_delivered",
   "payload": {

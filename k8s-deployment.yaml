@@ -28,7 +28,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: notification-celery-worker
+  name: notification-celery
   labels:
     app: notification-system
 spec:
@@ -46,7 +46,7 @@ spec:
       containers:
         - name: celery-worker
           image: lokeshdangi/notification_system_celery_worker:latest
-          command: ["celery", "-A", "notification_tasks", "worker", "--loglevel=info"]
+          command: ["celery", "-A", "tasks", "worker", "--loglevel=info"]
           env:
             - name: REDIS_HOST
               value: "redis"
@@ -94,7 +94,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: notification-celery-worker
+  name: notification-celery
 spec:
   selector:
     app: notification-system

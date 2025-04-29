@@ -113,5 +113,27 @@ To delete container
 docker rm -f notification_redis flask-app celery-worker
 
 
-HTML WebPage
-http://Pub_IP:5500/notify.html
+
+1. ✅ How to pass .env file in Docker
+
+docker run --env-file .env -p 5000:5000 your-image-name
+
+
+Full Example:
++++++++++++++
+
+docker build -t notification-system .
+docker run --env-file .env -p 5000:5000 notification-system
+
+
+
+
+
+
+Google:
++++++++
+
+mywf hxnw hnwv xvpw
+smtp.gmail.com
+lokeshdangi1045@gmail.com
+547

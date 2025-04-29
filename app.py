@@ -1,4 +1,4 @@
-# api/app.py
+#app.py
 
 from flask import Flask, request, jsonify, render_template
 from flask_limiter import Limiter
@@ -104,10 +104,6 @@ def notify():
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
-
-
-
-
 
 
 
