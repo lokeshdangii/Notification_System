@@ -100,3 +100,29 @@ curl -X POST http://localhost:5000/notify \
   }
 }'
 
+
+
+To send using SMTP
+++++++++++++++++++
+
+./swaks --auth \
+  --auth-user lokesh@sandboxd63fecfaa40d4ed38af8bb26690159ec.mailgun.org \
+  --auth-password Mailgun \
+  --server smtp.mailgun.org \
+  --port 587 \
+  --to lokeshd4ngi@gmail.com \
+  --h-Subject: "Hello from Swaks" \
+  --body "Testing some Mailgun awesomeness via SMTP and Swaks!" 
+
+
+
+./swaks --auth \
+  --auth-user postmaster@lokesh.dedyn.io \
+  --auth-password Mailgun \
+  --server smtp.mailgun.org \
+  --port 587 \
+  --to lokeshd4ngi@gmail.com \
+  --h-Subject: "Hello from Mailgun dedyno" \
+  --body "Testing some Mailgun awesomeness via SMTP and Swaks!" 
+
+

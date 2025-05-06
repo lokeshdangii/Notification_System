@@ -1,8 +1,9 @@
 import requests
 import time
+import os
 
-URL = "http://localhost:5000/notify"
-API_KEY = "supersecretapikey123" 
+URL = "http://54.85.143.45:5000/notify"
+API_KEY = os.environ.get("API_KEY")
 
 headers = {
     "Content-Type": "application/json",
@@ -10,10 +11,11 @@ headers = {
 }
 
 payload = {
-    "event_type": "user_registered",
+    "event_type": "order_confirmed",
     "payload": {
         "name": "Lokesh Test User",
-        "email": "lokeshd4ngi@gmail.com"
+        "email": "lokeshd4ngi@gmail.com",
+        "order_id": "12345"
     }
 }
 

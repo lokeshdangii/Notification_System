@@ -137,3 +137,29 @@ mywf hxnw hnwv xvpw
 smtp.gmail.com
 lokeshdangi1045@gmail.com
 547
+
+
+
+
+
+
+Learnings:
+
+Queue implementation
+Rate Limiting
+Importance of Scalability
+Adapter Pattern
+Dockerize python application
+AWS CloudWatch
+To use mail service domain is important
+
+
+
+
+Failure:
+
+Can't get AWS SES Production acess
+Sendring Login problem
+Mailchimp
+
+

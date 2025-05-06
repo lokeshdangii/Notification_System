@@ -7,122 +7,13 @@
 2025-04-28 11:31:42,349 - ERROR - notification_logger - [EmailChannel] Failed to send email to lokesh@example.com
 2025-04-28 11:31:42,350 - ERROR - notification_logger - [Task] Failed to send email to lokesh@example.com
 2025-04-29 15:52:01,537 - ERROR - notification_logger - ❌ Failed to queue email: Error -3 connecting to notification_redis:6379. Temporary failure in name resolution.
-Traceback (most recent call last):
-  File "/home/lokesh/Desktop/Decode/Notification_System/.venv/lib/python3.12/site-packages/redis/connection.py", line 357, in connect
-    sock = self.retry.call_with_retry(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/lokesh/Desktop/Decode/Notification_System/.venv/lib/python3.12/site-packages/redis/retry.py", line 62, in call_with_retry
-    return do()
-           ^^^^
-  File "/home/lokesh/Desktop/Decode/Notification_System/.venv/lib/python3.12/site-packages/redis/connection.py", line 358, in <lambda>
-    lambda: self._connect(), lambda error: self.disconnect(error)
-            ^^^^^^^^^^^^^^^
-  File "/home/lokesh/Desktop/Decode/Notification_System/.venv/lib/python3.12/site-packages/redis/connection.py", line 698, in _connect
-    for res in socket.getaddrinfo(
-               ^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.12/socket.py", line 963, in getaddrinfo
-    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-socket.gaierror: [Errno -3] Temporary failure in name resolution
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/home/lokesh/Desktop/Decode/Notification_System/.venv/lib/python3.12/site-packages/celery/backends/redis.py", line 127, in reconnect_on_error
-    yield
-  File "/home/lokesh/Desktop/Decode/Notification_System/.venv/lib/python3.12/site-packages/celery/backends/redis.py", line 177, in _consume_from
-    self._pubsub.subscribe(key)
-  File "/home/lokesh/Desktop/Decode/Notification_System/.venv/lib/python3.12/site-packages/redis/client.py", line 957, in subscribe
-    ret_val = self.execute_command("SUBSCRIBE", *new_channels.keys())
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/lokesh/Desktop/Decode/Notification_System/.venv/lib/python3.12/site-packages/redis/client.py", line 786, in execute_command
-    self.connection = self.connection_pool.get_connection(
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/lokesh/Desktop/Decode/Notification_System/.venv/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
-    connection.connect()
-  File "/home/lokesh/Desktop/Decode/Notification_System/.venv/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
-    raise ConnectionError(self._error_message(e))
-redis.exceptions.ConnectionError: Error -3 connecting to notification_redis:6379. Temporary failure in name resolution.
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/home/lokesh/Desktop/Decode/Notification_System/.venv/lib/python3.12/site-packages/redis/connection.py", line 357, in connect
-    sock = self.retry.call_with_retry(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/lokesh/Desktop/Decode/Notification_System/.venv/lib/python3.12/site-packages/redis/retry.py", line 62, in call_with_retry
-    return do()
-           ^^^^
-  File "/home/lokesh/Desktop/Decode/Notification_System/.venv/lib/python3.12/site-packages/redis/connection.py", line 358, in <lambda>
-    lambda: self._connect(), lambda error: self.disconnect(error)
-            ^^^^^^^^^^^^^^^
-  File "/home/lokesh/Desktop/Decode/Notification_System/.venv/lib/python3.12/site-packages/redis/connection.py", line 698, in _connect
-    for res in socket.getaddrinfo(
-               ^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.12/socket.py", line 963, in getaddrinfo
-    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-socket.gaierror: [Errno -3] Temporary failure in name resolution
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/home/lokesh/Desktop/Decode/Notification_System/.venv/lib/python3.12/site-packages/kombu/connection.py", line 472, in _reraise_as_library_errors
-    yield
-  File "/home/lokesh/Desktop/Decode/Notification_System/.venv/lib/python3.12/site-packages/celery/app/base.py", line 921, in send_task
-    self.backend.on_task_call(P, task_id)
-  File "/home/lokesh/Desktop/Decode/Notification_System/.venv/lib/python3.12/site-packages/celery/backends/redis.py", line 378, in on_task_call
-    self.result_consumer.consume_from(task_id)
-  File "/home/lokesh/Desktop/Decode/Notification_System/.venv/lib/python3.12/site-packages/celery/backends/redis.py", line 169, in consume_from
-    return self.start(task_id)
-           ^^^^^^^^^^^^^^^^^^^
-  File "/home/lokesh/Desktop/Decode/Notification_System/.venv/lib/python3.12/site-packages/celery/backends/redis.py", line 147, in start
-    self._consume_from(initial_task_id)
-  File "/home/lokesh/Desktop/Decode/Notification_System/.venv/lib/python3.12/site-packages/celery/backends/redis.py", line 176, in _consume_from
-    with self.reconnect_on_error():
-  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
-    self.gen.throw(value)
-  File "/home/lokesh/Desktop/Decode/Notification_System/.venv/lib/python3.12/site-packages/celery/backends/redis.py", line 130, in reconnect_on_error
-    self._ensure(self._reconnect_pubsub, ())
-  File "/home/lokesh/Desktop/Decode/Notification_System/.venv/lib/python3.12/site-packages/celery/backends/redis.py", line 389, in ensure
-    return retry_over_time(
-           ^^^^^^^^^^^^^^^^
-  File "/home/lokesh/Desktop/Decode/Notification_System/.venv/lib/python3.12/site-packages/kombu/utils/functional.py", line 318, in retry_over_time
-    return fun(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^
-  File "/home/lokesh/Desktop/Decode/Notification_System/.venv/lib/python3.12/site-packages/celery/backends/redis.py", line 106, in _reconnect_pubsub
-    metas = self.backend.client.mget(self.subscribed_to)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/lokesh/Desktop/Decode/Notification_System/.venv/lib/python3.12/site-packages/redis/commands/core.py", line 2009, in mget
-    return self.execute_command("MGET", *args, **options)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/lokesh/Desktop/Decode/Notification_System/.venv/lib/python3.12/site-packages/redis/client.py", line 559, in execute_command
-    return self._execute_command(*args, **options)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/lokesh/Desktop/Decode/Notification_System/.venv/lib/python3.12/site-packages/redis/client.py", line 565, in _execute_command
-    conn = self.connection or pool.get_connection(command_name, **options)
-                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/lokesh/Desktop/Decode/Notification_System/.venv/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
-    connection.connect()
-  File "/home/lokesh/Desktop/Decode/Notification_System/.venv/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
-    raise ConnectionError(self._error_message(e))
-redis.exceptions.ConnectionError: Error -3 connecting to notification_redis:6379. Temporary failure in name resolution.
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/home/lokesh/Desktop/Decode/Notification_System/app.py", line 98, in notify
-    send_email_task.delay(payload["email"], subject, body)
-  File "/home/lokesh/Desktop/Decode/Notification_System/.venv/lib/python3.12/site-packages/celery/app/task.py", line 444, in delay
-    return self.apply_async(args, kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/lokesh/Desktop/Decode/Notification_System/.venv/lib/python3.12/site-packages/celery/app/task.py", line 601, in apply_async
-    return app.send_task(
-           ^^^^^^^^^^^^^^
-  File "/home/lokesh/Desktop/Decode/Notification_System/.venv/lib/python3.12/site-packages/celery/app/base.py", line 919, in send_task
-    with P.connection._reraise_as_library_errors():
-  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
-    self.gen.throw(value)
-  File "/home/lokesh/Desktop/Decode/Notification_System/.venv/lib/python3.12/site-packages/kombu/connection.py", line 476, in _reraise_as_library_errors
-    raise ConnectionError(str(exc)) from exc
-kombu.exceptions.OperationalError: Error -3 connecting to notification_redis:6379. Temporary failure in name resolution.
+2025-05-06 16:21:33,400 - ERROR - notification_logger - [EmailChannel] Failed to send email to lokeshd4ngi@gmail.com
+2025-05-06 16:21:33,402 - ERROR - notification_logger - [Task] Failed to send email to lokeshd4ngi@gmail.com
+2025-05-06 16:21:35,994 - ERROR - notification_logger - [EmailChannel] Failed to send email to lokeshd4ngi@gmail.com
+2025-05-06 16:21:35,995 - ERROR - notification_logger - [Task] Failed to send email to lokeshd4ngi@gmail.com
+2025-05-06 16:21:36,665 - ERROR - notification_logger - [EmailChannel] Failed to send email to lokeshd4ngi@gmail.com
+2025-05-06 16:21:36,666 - ERROR - notification_logger - [Task] Failed to send email to lokeshd4ngi@gmail.com
+2025-05-06 16:21:37,719 - ERROR - notification_logger - [EmailChannel] Failed to send email to lokeshd4ngi@gmail.com
+2025-05-06 16:21:37,719 - ERROR - notification_logger - [Task] Failed to send email to lokeshd4ngi@gmail.com
+2025-05-06 16:21:38,373 - ERROR - notification_logger - [EmailChannel] Failed to send email to lokeshd4ngi@gmail.com
+2025-05-06 16:21:38,374 - ERROR - notification_logger - [Task] Failed to send email to lokeshd4ngi@gmail.com
